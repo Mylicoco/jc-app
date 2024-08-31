@@ -1,7 +1,7 @@
 import logo from "./logo.svg";
 import { Component } from "react";
 import "./App.css";
-import Homepage from "./components/homepage/homepage.component";
+import Homepage from "./components/pages/homepage/homepage.component";
 
 class App extends Component {
   constructor() {
