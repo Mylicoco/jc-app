@@ -1,6 +1,15 @@
 .sign-in {
-  width: 40vh;
+  width: 70vh;
   display: flex;
   flex-direction: column;
+  
   .title{margin:10px 0;}
+  
 }
+.buttom-div{
+  display: flex;
+  justify-content: space-between;
+}
+// .google{
+//   background-color: #F08A4B;
+// }

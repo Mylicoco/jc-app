@@ -1,28 +1,22 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBxJCcPkBx0SCnpeyaVmpUdMzot8x_bZec",
-  authDomain: "crwn-clothes-565ed.firebaseapp.com",
-  projectId: "crwn-clothes-565ed",
-  storageBucket: "crwn-clothes-565ed.appspot.com",
-  messagingSenderId: "96783818707",
-  appId: "1:96783818707:web:8c654c0c67ef1468a29926",
-  measurementId: "G-KLT2R4VK9T",
+  apiKey: "AIzaSyC_BYUWe4h9QyiJ7yS_5clTXnB7qSQYeMM",
+  authDomain: "crwn-462fc.firebaseapp.com",
+  projectId: "crwn-462fc",
+  storageBucket: "crwn-462fc.appspot.com",
+  messagingSenderId: "267909510220",
+  appId: "1:267909510220:web:7e35ffc65daf4953a5f0e9",
 };
+
 const app = initializeApp(firebaseConfig);
 
-const auth = getAuth(app);
-// const db = getFirestore(firebaseConfig);
-// const todosCol=collection(db, "todos");
-// getDocs(todosCol);
+export const auth = getAuth();
+const provider = new GoogleAuthProvider();
+provider.addScope("https://www.googleapis.com/auth/contacts.readonly");
 
-onAuthStateChanged((auth,user) => {
-  if (user != null) {
-    console.log("log in");
-  }else{
-      console.log("not log");
-  }
+provider.setCustomParameters({
+  login_hint: "user@example.com",
 });
-// Initialize Firebase
+export const signInWithGoogle = () => signInWithPopup(auth, provider);
